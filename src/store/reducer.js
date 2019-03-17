@@ -2,6 +2,7 @@ const initialState = {
   counter: 0,
   results: []
 };
+let updatedArray;
 
 const reducer = (state = initialState, action) => {
   if (action.type === "INCREMENT") {
@@ -36,7 +37,20 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       // concat returns a new array by adding a new item
-      results: state.results.concat({ id: new Date(), value: state.counter })
+      results: state.results.concat({
+        id: new Date().getTime(),
+        value: state.counter
+      })
+    };
+  }
+  if (action.type === "DELETE_RESULT") {
+    // filter returns a new array with all elements that are not equal to the id we passed with the action
+    const updatedArray = state.results.filter(
+      result => result.id !== action.resultElementId
+    );
+    return {
+      ...state,
+      results: updatedArray
     };
   }
 
