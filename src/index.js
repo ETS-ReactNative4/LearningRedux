@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import reducer from "./store/reducer";
+import CounterReducer from "./store/reducers.js/counter";
+import ResultReducer from "./store/reducers.js/result";
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  ctr: CounterReducer,
+  res: ResultReducer
+});
+
+const store = createStore(rootReducer);
 
 // provider passes info to the rest of the app. In this case reducer, which contains the state
 ReactDOM.render(
