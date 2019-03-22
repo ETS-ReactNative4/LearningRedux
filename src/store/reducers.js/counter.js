@@ -4,7 +4,6 @@ const initialState = {
   counter: 0,
   results: []
 };
-let updatedArray;
 
 const reducer = (state = initialState, action) => {
   if (action.type === actionTypes.INCREMENT) {
