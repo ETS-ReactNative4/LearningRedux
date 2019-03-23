@@ -6,8 +6,8 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
-import CounterReducer from "./store/reducers.js/counter";
-import ResultReducer from "./store/reducers.js/result";
+import CounterReducer from "./store/reducers/counter";
+import ResultReducer from "./store/reducers/result";
 
 const rootReducer = combineReducers({
   ctr: CounterReducer,
