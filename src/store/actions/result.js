@@ -10,8 +10,10 @@ export const saveResust = res => {
 export const storeResult = res => {
   // thunk will give us the dispatch
   //middleware runs between the dispatch and before the action reaches the reducer
-  return dispatch => {
+  return (dispatch, getState) => {
     setTimeout(() => {
+      //   const oldCounter = getState().ctr.counter;
+      //   console.log(oldCounter);
       // we need to use a synchronus action creator in an a-synchronus function
       dispatch(saveResust(res));
     }, 2000);
